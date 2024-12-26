@@ -22,6 +22,12 @@
 \usepackage{textcomp}
 \usepackage[dvipsnames]{xcolor}
 
+% Fix chapter title nonsense
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+    {\normalfont\huge\bfseries}{}{20pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{-100pt}{20pt}
+
 \usepackage{tikz}
 \usetikzlibrary{decorations.pathmorphing, decorations.pathreplacing}
 
@@ -87,20 +93,24 @@ This page intentionally left blank.
 % \clearpage
 \setcounter{secnumdepth}{-2}
 \vspace*{-2em}
-\chapter{Abstract}
-\input{Abstract}
+\chapter{Summary [\emph{max 2000 characters with spaces}]}
+\input{Summary}
 \setcounter{secnumdepth}{2}
 
 \setstretch{1.5}
 \clearpage
 \chapter{Introduction}
 \vspace{-1em}
+\lipsum
 
-\chapter{Title of Chapter 2}
-\input{Chapter2}
+\chapter{Results}
+\input{Results}
 
-\chapter{Title of Chapter 3}
-\input{Chapter3}
+\chapter{Discussion}
+\input{Discussion}
+
+\chapter{Materials and methods}
+\input{Materials_methods}
 
 \chapter{Conclusion}
 
