@@ -28,6 +28,12 @@
     {\normalfont\huge\bfseries}{}{20pt}{\Huge}
 \titlespacing*{\chapter}{0pt}{-100pt}{20pt}
 
+% Have one continuous figure and table numbering
+\setcounter{figure}{0}            % Reset the figure counter to 0
+\renewcommand{\thefigure}{\arabic{figure}}  % Set figure numbering to continuous (1, 2, 3, ...)
+\setcounter{table}{0}            % Reset the table counter
+\renewcommand{\thetable}{\arabic{table}}  % Use continuous numbering (1, 2, 3, ...)
+
 \usepackage{tikz}
 \usetikzlibrary{decorations.pathmorphing, decorations.pathreplacing}
 
