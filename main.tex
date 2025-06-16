@@ -20,19 +20,27 @@
 \usepackage{setspace}
 \usepackage{subcaption}
 \usepackage{textcomp}
+\usepackage{cleveref}
 \usepackage[dvipsnames]{xcolor}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+\usepackage{multirow}
+\usepackage{todonotes}
+% \usepackage{natbib}
+\usepackage{wrapfig}
 
 % Fix chapter title nonsense
 \usepackage{titlesec}
 \titleformat{\chapter}[display]
     {\normalfont\huge\bfseries}{}{20pt}{\Huge}
-\titlespacing*{\chapter}{0pt}{-100pt}{20pt}
+\titlespacing*{\chapter}{0pt}{-75pt}{20pt}
 
 % Have one continuous figure and table numbering
-\setcounter{figure}{0}            % Reset the figure counter to 0
-\renewcommand{\thefigure}{\arabic{figure}}  % Set figure numbering to continuous (1, 2, 3, ...)
-\setcounter{table}{0}            % Reset the table counter
-\renewcommand{\thetable}{\arabic{table}}  % Use continuous numbering (1, 2, 3, ...)
+% \setcounter{figure}{0}            % Reset the figure counter to 0
+% \renewcommand{\thefigure}{\arabic{figure}}  % Set figure numbering to continuous (1, 2, 3, ...)
+% \setcounter{table}{0}            % Reset the table counter
+% \renewcommand{\thetable}{\arabic{table}}  % Use continuous numbering (1, 2, 3, ...)
 
 \usepackage{tikz}
 \usetikzlibrary{decorations.pathmorphing, decorations.pathreplacing}
@@ -44,7 +52,7 @@
 \renewcommand{\headrulewidth}{0pt} % remove the header rule
 \pagestyle{fancy}
 
-\usepackage{fontspec}
+
 
 \usepackage{siunitx}
 
@@ -68,8 +76,10 @@
 
 \input{Cover}
 
-\setmainfont{Times New Roman}
-\setstretch{1.5}
+%% Change font to Times New Roman
+%\usepackage{fontspec}
+%\setmainfont{Times New Roman}
+%\setstretch{1.5}
 
 \vspace*{\fill}
 \hfill
@@ -79,7 +89,8 @@ This page intentionally left blank.
 \vspace{\fill}
 \null\newpage
 
-\chapter*{Acknowledgements}
+\chapter*{Acknowledgments}
+\setstretch{1.5}
 \clearpage
 
 \setstretch{1.2}
@@ -92,49 +103,59 @@ This page intentionally left blank.
 \setstretch{0.1}
 \glsunsetall
 \renewcommand*{\glossarypreamble}{\vspace*{-2em}}
-\addcontentsline{toc}{chapter}{Abbreviations}
-\printnoidxglossary[type=\acronymtype, title={Abbreviations},nonumberlist]
+% \addcontentsline{toc}{chapter}{Abbreviations}
+% \printnoidxglossary[type=\acronymtype, title={Abbreviations},nonumberlist]
 
 \setstretch{1.4}
 % \clearpage
 \setcounter{secnumdepth}{-2}
 \vspace*{-2em}
-\chapter{Summary [\emph{max 2000 characters with spaces}]}
+\chapter{Summary}
+\thispagestyle{fancy}
 \input{Summary}
 \setcounter{secnumdepth}{2}
 
 \setstretch{1.5}
 \clearpage
+
 \chapter{Introduction}
-\vspace{-1em}
-\lipsum
+\thispagestyle{fancy}
+\input{Introduction}
+
+\chapter{Materials and methods}
+\thispagestyle{fancy}
+\input{Materials_methods}
 
 \chapter{Results}
+\thispagestyle{fancy}
 \input{Results}
 
 \chapter{Discussion}
+\thispagestyle{fancy}
 \input{Discussion}
 
-\chapter{Materials and methods}
-\input{Materials_methods}
 
 \chapter{Conclusion}
+\thispagestyle{fancy} 
+\input{Conclusion}
 
-\begin{refcontext}
-    \setcounter{secnumdepth}{-2}
-    \setstretch{0}
-    \newgeometry{left=2.5cm, bottom=2.5cm, right=2.5cm, top=2.5cm}
-    \renewcommand{\thepage}{}
-    \printbibliography[heading=bibnumbered,title={References}]
-    \setcounter{secnumdepth}{2}
-    \newpage
-\end{refcontext}
+% \begin{refcontext}
+%     \setcounter{secnumdepth}{-2}
+%     \setstretch{0}
+%     \newgeometry{left=2.5cm, bottom=2.5cm, right=2.5cm, top=2.5cm}
+%     \renewcommand{\thepage}{}
+%     \printbibliography[heading=bibnumbered,title={References}]
+%     \setcounter{secnumdepth}{2}
+%     \newpage
+% \end{refcontext}
+
+\printbibliography
 
 \restoregeometry
 \setcounter{secnumdepth}{-2}
-\chapter{Appendix}
-\vspace{-2em}
-\input{Appendix}
-\setcounter{secnumdepth}{2}
+% \chapter{Appendix}
+% \vspace{-2em}
+% \input{Appendix}
+% \setcounter{secnumdepth}{2}
 
 \end{document}
